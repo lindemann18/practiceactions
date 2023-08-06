@@ -26,9 +26,8 @@ jobs: # the JOBS that will be performed,
         uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Install dependencies
-        run: npm ci # is a bit safer and you don't install breaking versions
-      - name: build project
-        run: npm run build
-      - name: deploy
-        run: echo "deploying..."
+      - name: Install dependencies, building the code and deploying
+        run: |
+          npm ci 
+          npm run build
+          echo "deploying..."
