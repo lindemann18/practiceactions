@@ -14,9 +14,9 @@ jobs: # the JOBS that will be performed,
         run: npm ci # is a bit safer and you don't install breaking versions
       - name: run tests, lints and build
         run: |
-          npm test
-          npm lint
-          npm build
+          npm run test
+          npm run lint
+          npm run build
   deploy:
     needs: test # this job needs the job test to finish to start. [onejob, secondjob]
     runs-on: ubuntu-latest # every job gets its own runner, its own virtual machine that's totally isolated from other machines
