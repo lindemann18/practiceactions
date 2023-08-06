@@ -12,12 +12,11 @@ jobs: # the JOBS that will be performed,
           node-version: 18
       - name: Install dependencies
         run: npm ci # is a bit safer and you don't install breaking versions
-      - name: run tests
-        run: npm test
-      - name: run lints
-        run: npm lint
-      - name: run build
-        run: npm build
+      - name: run tests, lints and build
+        run: |
+          npm test
+          npm lint
+          npm build
   deploy:
     needs: test # this job needs the job test to finish to start. [onejob, secondjob]
     runs-on: ubuntu-latest # every job gets its own runner, its own virtual machine that's totally isolated from other machines
